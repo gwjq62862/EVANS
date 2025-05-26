@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evans</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0f172a;
+            color: #e2e8f0;
+            scroll-behavior: smooth;
+        }
+
+        .gradient-text {
+            background: linear-gradient(90deg, #6366f1, #8b5cf6, #ec4899);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .nav-link {
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background: linear-gradient(90deg, #6366f1, #8b5cf6);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .project-card {
+            transition: all 0.3s ease;
+            transform: translateY(0);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        .skill-bar {
+            height: 6px;
+            background: #1e293b;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(90deg, #6366f1, #8b5cf6);
+            transition: width 1s ease-in-out;
+        }
+
+        .floating {
+            animation: floating 6s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 1s ease-in forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        .delay-1 {
+            animation-delay: 0.2s;
+        }
+
+        .delay-2 {
+            animation-delay: 0.4s;
+        }
+
+        .delay-3 {
+            animation-delay: 0.6s;
+        }
+
+        .delay-4 {
+            animation-delay: 0.8s;
+        }
+
+        .delay-5 {
+            animation-delay: 1s;
+        }
+
+        .bg-glass {
+            background: rgba(15, 23, 42, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .cv-button {
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            transition: all 0.4s ease;
+        }
+
+        .cv-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: all 0.6s ease;
+            z-index: -1;
+        }
+
+        .cv-button:hover::before {
+            left: 100%;
+        }
+
+        .cv-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(99, 102, 241, 0.3);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-glass py-4 px-6 md:px-12">
+        <div class="flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold gradient-text">DESIGN<span class="text-white">HUB</span></a>
+            <div class="hidden md:flex space-x-8">
+                <a href="#home" class="nav-link text-white hover:text-indigo-300">Home</a>
+                <a href="#about" class="nav-link text-white hover:text-indigo-300">About</a>
+                <a href="#portfolio" class="nav-link text-white hover:text-indigo-300">Portfolio</a>
+                <a href="#skills" class="nav-link text-white hover:text-indigo-300">Skills</a>
+                <a href="#contact" class="nav-link text-white hover:text-indigo-300">Contact</a>
+            </div>
+            <button class="md:hidden text-white focus:outline-none" id="menu-toggle">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="md:hidden hidden bg-slate-900 mt-4 rounded-lg p-4" id="mobile-menu">
+            <div class="flex flex-col space-y-3">
+                <a href="#home" class="nav-link text-white hover:text-indigo-300">Home</a>
+                <a href="#about" class="nav-link text-white hover:text-indigo-300">About</a>
+                <a href="#portfolio" class="nav-link text-white hover:text-indigo-300">Portfolio</a>
+                <a href="#skills" class="nav-link text-white hover:text-indigo-300">Skills</a>
+                <a href="#contact" class="nav-link text-white hover:text-indigo-300">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center pt-20 px-6 md:px-12 lg:px-24">
+        <div class="container mx-auto">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-12 md:mb-0 fade-in">
+                    <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
+                        Hi, I'm <span class="gradient-text">HEIN HTET KYAW ZIN</span>
+                    </h1>
+
+                    <h2 class="text-2xl md:text-3xl font-semibold mb-6 text-indigo-300">Graphic Designer & Visual Artist
+                    </h2>
+
+                    <p id="mainText"
+                        class="text-base text-slate-300 mb-6 leading-relaxed max-w-xl sm:max-w-2xl lg:max-w-xl">
+                        An experienced Graphic Designer with a strong focus on Print Design and Social Media Design.
+                    </p>
+                    <button id="toggleBtn"
+                        class="mb-8 text-indigo-400 hover:text-indigo-300 transition duration-300 font-medium underline focus:outline-none">
+                        See More
+                    </button>
+
+                    <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
+                        <a href="#portfolio"
+                            class="px-8 py-3 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full text-white font-medium hover:shadow-lg hover:shadow-indigo-500/30 transition-all duration-300 text-center">
+                            View Work
+                        </a>
+                        <a href="#contact"
+                            class="px-8 py-3 border border-indigo-500 rounded-full text-white font-medium hover:bg-indigo-500/10 transition-all duration-300 text-center">
+                            Contact Me
+                        </a>
+                    </div>
+
+                </div>
+                <div class="md:w-1/2 flex justify-center fade-in delay-1">
+                    <div class="relative">
+                        <div
+                            class="w-64 h-64 md:w-80 md:h-80 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 absolute -z-10 top-4 left-4 blur-xl opacity-70">
+                        </div>
+                        <img src="image\myphoto.jpg" alt="Designer Portrait"
+                            class="w-64 h-64 md:w-80 md:h-80 object-cover rounded-full border-4 border-indigo-500/30 floating">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 px-6 md:px-12 lg:px-24 bg-slate-900/50">
+        <div class="container mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center fade-in">
+                <span class="gradient-text">About</span> Me
+            </h2>
+            <div class="flex flex-col lg:flex-row items-center gap-12">
+                <div class="lg:w-2/5 fade-in delay-1">
+                    <div class="relative">
+                        <div
+                            class="absolute -inset-4 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-2xl blur-lg opacity-20">
+                        </div>
+                        <img src="https://images.unsplash.com/photo-1573497620053-ea5300f94f21?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80"
+                            alt="Designer Working" class="rounded-2xl w-full h-auto shadow-xl relative">
+                    </div>
+                </div>
+                <div class="lg:w-3/5 fade-in delay-2">
+                    <h3 class="text-2xl font-semibold mb-4 text-indigo-300">Creative Designer with 2+ Years Experience
+                    </h3>
+                    <p class="text-slate-300 mb-6 leading-relaxed">
+                        Working as a Digital Designer and Creating Content
+                        Manage Electronic & IT & Mobile Digital Marketing.
+                        content, and Wholesale & Retail, Branding
+                    </p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                        <div class="flex items-start">
+                            <div class="bg-indigo-500/10 p-3 rounded-full mr-4">
+                                <i class="fas fa-palette text-indigo-400 text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-white mb-1">Creative Design</h4>
+                                <p class="text-slate-400 text-sm">Unique and innovative design solutions tailored to
+                                    your needs.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-indigo-500/10 p-3 rounded-full mr-4">
+                                <i class="fas fa-mobile-alt text-indigo-400 text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-white mb-1">Responsive Design</h4>
+                                <p class="text-slate-400 text-sm">Designs that look perfect on any device or screen
+                                    size.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-indigo-500/10 p-3 rounded-full mr-4">
+                                <i class="fas fa-bolt text-indigo-400 text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-white mb-1">Fast Delivery</h4>
+                                <p class="text-slate-400 text-sm">Quick turnaround without compromising on quality.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-indigo-500/10 p-3 rounded-full mr-4">
+                                <i class="fas fa-headset text-indigo-400 text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-white mb-1">Support</h4>
+                                <p class="text-slate-400 text-sm">Dedicated support throughout and after the project.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="https://drive.google.com/file/d/16cI62pwkoGT2eYYBVSf6W7-Q-yFovKFr/view?usp=sharing"
+                        class="cv-button inline-flex items-center px-6 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-lg text-white font-medium transition-all duration-400"
+                        download="https://drive.google.com/file/d/16cI62pwkoGT2eYYBVSf6W7-Q-yFovKFr/view?usp=sharing">
+                        <i class="fas fa-download mr-2"></i> Download CV
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-20 px-6 md:px-12 lg:px-24">
+        <div class="container mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4 text-center fade-in">
+                My <span class="gradient-text">Portfolio</span>
+            </h2>
+            <p class="text-slate-400 text-center max-w-2xl mx-auto mb-12 fade-in delay-1">
+                Here's a selection of my recent work. Each project represents a unique challenge and creative solution.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="project-card bg-slate-800 rounded-xl overflow-hidden fade-in delay-2">
+                    <div class="relative overflow-hidden group">
+                        <img src="image\photo_1_2025-05-21_19-56-31.jpg" alt="Brand Identity Project"
+                            class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div>
+                                <h3 class="text-xl font-bold text-white mb-2">Nova Brand Identity</h3>
+                                <p class="text-slate-300 mb-4">Complete brand identity design for a tech startup</p>
+                                <a href="image\photo_1_2025-05-21_19-56-31.jpg" target="_blank"
+                                    class="text-indigo-400 hover:text-indigo-300 flex items-center"
+                                    onclick="openImageInFullscreen(event, this)">
+                                    View Project <i class="fas fa-arrow-right ml-2"></i>
+                                </a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card bg-slate-800 rounded-xl overflow-hidden fade-in delay-3">
+                    <div class="relative overflow-hidden group">
+                        <img src="image/photo_2_2025-05-21_19-56-31.jpg" alt="Mobile App Design"
+                            class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div>
+                                <h3 class="text-xl font-bold text-white mb-2">Fitness App UI/UX</h3>
+                                <p class="text-slate-300 mb-4">Mobile application design for fitness tracking</p>
+                                <a href="image/photo_2_2025-05-21_19-56-31.jpg" target="_blank"
+                                    class="text-indigo-400 hover:text-indigo-300 flex items-center"
+                                    onclick="openImageInFullscreen(event, this)">
+                                    View Project <i class="fas fa-arrow-right ml-2"></i>
+                                </a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card bg-slate-800 rounded-xl overflow-hidden fade-in delay-4">
+                    <div class="relative overflow-hidden group">
+                        <img src="image/photo_3_2025-05-21_19-56-31.jpg" alt="Packaging Design"
+                            class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div>
+                                <h3 class="text-xl font-bold text-white mb-2">Organic Product Packaging</h3>
+                                <p class="text-slate-300 mb-4">Sustainable packaging design for organic skincare line
+                                </p>
+                                <a href="image/photo_3_2025-05-21_19-56-31.jpg" target="_blank"
+                                    class="text-indigo-400 hover:text-indigo-300 flex items-center"
+                                    onclick="openImageInFullscreen(event, this)">
+                                    View Project <i class="fas fa-arrow-right ml-2"></i>
+                                </a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="project-card bg-slate-800 rounded-xl overflow-hidden fade-in delay-3">
+                    <div class="relative overflow-hidden group">
+                        <img src="image/photo_4_2025-05-21_19-56-31.jpg" alt="Website Design"
+                            class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div>
+                                <h3 class="text-xl font-bold text-white mb-2">E-commerce Website</h3>
+                                <p class="text-slate-300 mb-4">Complete website design for fashion retailer</p>
+                                <a href="image/photo_4_2025-05-21_19-56-31.jpg" target="_blank"
+                                    class="text-indigo-400 hover:text-indigo-300 flex items-center"
+                                    onclick="openImageInFullscreen(event, this)">
+                                    View Project <i class="fas fa-arrow-right ml-2"></i>
+                                </a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 5 -->
+                <div class="project-card bg-slate-800 rounded-xl overflow-hidden fade-in delay-4">
+                    <div class="relative overflow-hidden group">
+                        <img src="image/photo_5_2025-05-21_19-56-31.jpg" alt="Corporate Branding"
+                            class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div>
+                                <h3 class="text-xl font-bold text-white mb-2">Corporate Branding</h3>
+                                <p class="text-slate-300 mb-4">Brand identity for financial consulting firm</p>
+                                <a href="image/photo_5_2025-05-21_19-56-31.jpg" target="_blank"
+                                    class="text-indigo-400 hover:text-indigo-300 flex items-center"
+                                    onclick="openImageInFullscreen(event, this)">
+                                    View Project <i class="fas fa-arrow-right ml-2"></i>
+                                </a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 6 -->
+                <div class="project-card bg-slate-800 rounded-xl overflow-hidden fade-in delay-5">
+                    <div class="relative overflow-hidden group">
+                        <img src="image/photo_6_2025-05-21_19-56-31.jpg" alt="Illustration Series"
+                            class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div>
+                                <h3 class="text-xl font-bold text-white mb-2">Digital Illustration Series</h3>
+                                <p class="text-slate-300 mb-4">Concept art for fantasy book series</p>
+                                <a href="image/photo_6_2025-05-21_19-56-31.jpg" target="_blank"
+                                    class="text-indigo-400 hover:text-indigo-300 flex items-center"
+                                    onclick="openImageInFullscreen(event, this)">
+                                    View Project <i class="fas fa-arrow-right ml-2"></i>
+                                </a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-12 fade-in delay-5">
+                <a href="viewpj.html"
+                    class="px-8 py-3 border border-indigo-500 rounded-full text-white font-medium hover:bg-indigo-500/10 transition-all duration-300 inline-flex items-center">
+                    View All Projects <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 px-6 md:px-12 lg:px-24 bg-slate-900/50">
+        <div class="container mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4 text-center fade-in">
+                My <span class="gradient-text">Skills</span>
+            </h2>
+            <p class="text-slate-400 text-center max-w-2xl mx-auto mb-12 fade-in delay-1">
+                I've honed my skills across various design disciplines to deliver comprehensive creative solutions.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div class="fade-in delay-2">
+                    <h3 class="text-xl font-semibold mb-6 text-indigo-300">Design Skills</h3>
+
+                    <div class="space-y-6">
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium text-slate-300">Adobe Photoshop</span>
+                                <span class="text-indigo-400">100%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 100%"></div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium text-slate-300">capcut
+                                </span>
+                                <span class="text-indigo-400">100%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 100%"></div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium text-slate-300">Camera & other Accessories </span>
+                                <span class="text-indigo-400">100%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 100%"></div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium text-slate-300">Adobe illustrator
+                                </span>
+                                <span class="text-indigo-400">90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="fade-in delay-3">
+                    <h3 class="text-xl font-semibold mb-6 text-indigo-300">Software Proficiency</h3>
+
+                    <div class="space-y-6">
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium text-slate-300">Adobe After Effect </span>
+                                <span class="text-indigo-400">40%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 40%"></div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium text-slate-300">Adobe Premier Pro </span>
+                                <span class="text-indigo-400">45%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 4cm"></div>
+                            </div>
+                        </div>
+
+                        <div>
+
+                        </div>
+
+                        <div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-16 fade-in delay-4">
+                <h3 class="text-xl font-semibold mb-8 text-center text-indigo-300">Design Process</h3>
+
+                <div class="flex flex-col md:flex-row justify-center items-center gap-8">
+                    <div class="text-center max-w-xs">
+                        <div
+                            class="bg-indigo-500/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="text-2xl text-indigo-400">1</span>
+                        </div>
+                        <h4 class="font-semibold text-white mb-2">Discovery</h4>
+                        <p class="text-slate-400">Understanding your goals, audience, and requirements</p>
+                    </div>
+
+                    <div class="hidden md:block">
+                        <i class="fas fa-arrow-right text-2xl text-indigo-400/50"></i>
+                    </div>
+
+                    <div class="text-center max-w-xs">
+                        <div
+                            class="bg-indigo-500/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="text-2xl text-indigo-400">2</span>
+                        </div>
+                        <h4 class="font-semibold text-white mb-2">Concept</h4>
+                        <p class="text-slate-400">Developing creative concepts and design directions</p>
+                    </div>
+
+                    <div class="hidden md:block">
+                        <i class="fas fa-arrow-right text-2xl text-indigo-400/50"></i>
+                    </div>
+
+                    <div class="text-center max-w-xs">
+                        <div
+                            class="bg-indigo-500/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="text-2xl text-indigo-400">3</span>
+                        </div>
+                        <h4 class="font-semibold text-white mb-2">Design</h4>
+                        <p class="text-slate-400">Creating visual solutions and refining the design</p>
+                    </div>
+
+                    <div class="hidden md:block">
+                        <i class="fas fa-arrow-right text-2xl text-indigo-400/50"></i>
+                    </div>
+
+                    <div class="text-center max-w-xs">
+                        <div
+                            class="bg-indigo-500/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="text-2xl text-indigo-400">4</span>
+                        </div>
+                        <h4 class="font-semibold text-white mb-2">Delivery</h4>
+                        <p class="text-slate-400">Finalizing and delivering all project assets</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-20 px-6 md:px-12 lg:px-24">
+        <div class="container mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center fade-in">
+                Client <span class="gradient-text">Testimonials</span>
+            </h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-slate-800 rounded-xl p-8 fade-in delay-1">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Client"
+                                class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-white">Sarah Johnson</h4>
+                            <p class="text-slate-400 text-sm"></p>
+                        </div>
+                    </div>
+                    <p class="text-slate-300 mb-6">
+                        "Evans transformed our brand identity completely. The new design perfectly captures our
+                        innovative spirit and has significantly improved our market presence."
+                    </p>
+                    <div class="flex text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="bg-slate-800 rounded-xl p-8 fade-in delay-2">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Client"
+                                class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-white">Michael Chen</h4>
+                            <p class="text-slate-400 text-sm"></p>
+                        </div>
+                    </div>
+                    <p class="text-slate-300 mb-6">
+                        "The packaging design Evans created for our product line exceeded all expectations. Sales
+                        increased by 40% after the redesign launched."
+                    </p>
+                    <div class="flex text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="bg-slate-800 rounded-xl p-8 fade-in delay-3">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Client"
+                                class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-white">Emily Rodriguez</h4>
+                            <p class="text-slate-400 text-sm"></p>
+                        </div>
+                    </div>
+                    <p class="text-slate-300 mb-6">
+                        "Working with Evans on our e-commerce website was a pleasure. The design is not only beautiful
+                        but also highly functional, resulting in better user engagement."
+                    </p>
+                    <div class="flex text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-6 md:px-12 lg:px-24 bg-slate-900/50">
+        <div class="container mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4 text-center fade-in">
+                Get In <span class="gradient-text">Touch</span>
+            </h2>
+            <p class="text-slate-400 text-center max-w-2xl mx-auto mb-12 fade-in delay-1">
+                Have a project in mind or want to discuss potential collaboration? Feel free to reach out!
+            </p>
+
+            <div class="flex flex-col lg:flex-row gap-12">
+                <div class="lg:w-1/2 fade-in delay-2">
+                    <form id="target" class="space-y-6" action="https://formspree.io/f/xjkwqaow" method="POST">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="name" class="block text-slate-300 mb-2">Your Name</label>
+                                <input type="text" id="name" name="name"
+                                    class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-500 text-white"
+                                    required>
+                            </div>
+                            <div>
+                                <label for="email" class="block text-slate-300 mb-2">Email Address</label>
+                                <input type="email" name="email" id="email"
+                                    class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-500 text-white"
+                                    required>
+                            </div>
+                        </div>
+                        <div>
+                            <label for="subject" class="block text-slate-300 mb-2">Subject</label>
+                            <input type="text" id="subject" name="subject"
+                                class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-500 text-white"
+                                required>
+                        </div>
+                        <div>
+                            <label for="message" class="block text-slate-300 mb-2">Message</label>
+                            <textarea name="message" id="message" rows="5"
+                                class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-500 text-white"
+                                required></textarea>
+                        </div>
+                        <button type="submit"
+                            class="px-8 py-3 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full text-white font-medium hover:shadow-lg hover:shadow-indigo-500/30 transition-all duration-300 w-full md:w-auto">
+                            Send Message
+                        </button>
+                    </form>
+
+                </div>
+
+                <div class="lg:w-1/2 fade-in delay-3">
+                    <div class="bg-slate-800 rounded-xl p-8 h-full">
+                        <h3 class="text-xl font-semibold mb-6 text-indigo-300">Contact Information</h3>
+
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="bg-indigo-500/10 p-3 rounded-full mr-4">
+                                    <i class="fas fa-map-marker-alt text-indigo-400"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-white mb-1">Location</h4>
+                                    <p class="text-slate-400">921(A), Margal2Street, South Okkalapa </p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start">
+                                <div class="bg-indigo-500/10 p-3 rounded-full mr-4">
+                                    <i class="fas fa-envelope text-indigo-400"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-white mb-1">Email</h4>
+                                    <p class="text-slate-400">heinhtet4820@gmail.com </p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start">
+                                <div class="bg-indigo-500/10 p-3 rounded-full mr-4">
+                                    <i class="fas fa-phone-alt text-indigo-400"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-white mb-1">Phone</h4>
+                                    <p class="text-slate-400">09 989 823 130 </p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start">
+                                <div class="bg-indigo-500/10 p-3 rounded-full mr-4">
+                                    <i class="fas fa-clock text-indigo-400"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-white mb-1">Working Hours</h4>
+                                    <p class="text-slate-400">Mon-Fri: 9AM - 6PM</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-8">
+                            <h4 class="font-semibold text-white mb-4">Follow Me</h4>
+                            <div class="flex space-x-4">
+                                <a href="https://t.me/Adrian4821"
+                                    class="w-10 h-10 rounded-full bg-slate-700 flex items-center justify-center text-indigo-400 hover:bg-indigo-500 hover:text-white transition-colors duration-300">
+                                    <i class="fab fa-telegram"></i>
+                                </a>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 px-6 md:px-12 lg:px-24 bg-slate-900">
+        <div class="container mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <a href="#" class="text-2xl font-bold gradient-text">DESIGN<span class="text-white">HUB</span></a>
+                    <p class="text-slate-400 mt-2">Creating visual experiences that inspire.</p>
+                </div>
+
+                <div class="flex flex-col items-center md:items-end">
+                    <div class="flex space-x-6 mb-4">
+                        <a href="#" class="text-slate-400 hover:text-indigo-400 transition-colors duration-300">Home</a>
+                        <a href="#"
+                            class="text-slate-400 hover:text-indigo-400 transition-colors duration-300">About</a>
+                        <a href="#"
+                            class="text-slate-400 hover:text-indigo-400 transition-colors duration-300">Portfolio</a>
+                        <a href="#"
+                            class="text-slate-400 hover:text-indigo-400 transition-colors duration-300">Contact</a>
+                    </div>
+                    <p class="text-slate-500 text-sm">© 2023 DesignHub. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('menu-toggle').addEventListener('click', function () {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+
+                // Close mobile menu if open
+                const mobileMenu = document.getElementById('mobile-menu');
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+
+        // Animate skill bars on scroll
+        const animateSkillBars = () => {
+            const skillBars = document.querySelectorAll('.skill-progress');
+            skillBars.forEach(bar => {
+                const width = bar.style.width;
+                bar.style.width = '0';
+
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            bar.style.width = width;
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.5 });
+
+                observer.observe(bar);
+            });
+        };
+
+        // Initialize animations when page loads
+        window.addEventListener('load', () => {
+            animateSkillBars();
+
+            // Add fade-in class to elements
+            const elements = document.querySelectorAll('.fade-in');
+            elements.forEach(el => {
+                el.classList.add('fade-in');
+            });
+        });
+
+        //for email when after send show for dialog
+        const form = document.getElementById('target');
+        form.addEventListener('submit', async function (e) {
+            e.preventDefault();
+            const data = new FormData(form);
+            const response = await fetch(form.action, {
+                method: 'POST',
+                body: data,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+
+            if (response.ok) {
+                alert("✅ Thank you! Your message has been sent.");
+                form.reset();
+            } else {
+                alert("❌ Oops! Something went wrong. Please try again.");
+            }
+        });
+
+
+        function openImageInFullscreen(event, link) {
+            event.preventDefault();
+            const imageUrl = link.getAttribute("href");
+
+            // Create overlay
+            const overlay = document.createElement("div");
+            overlay.style.cssText = `
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.95);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    `;
+
+            // Create image
+            const img = document.createElement("img");
+            img.src = imageUrl;
+            img.style.cssText = `
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.6);
+    `;
+
+            // Create close button
+            const closeBtn = document.createElement("button");
+            closeBtn.innerText = "✕";
+            closeBtn.style.cssText = `
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 24px;
+      color: white;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      z-index: 10000;
+    `;
+
+            closeBtn.onclick = () => document.body.removeChild(overlay);
+            overlay.onclick = (e) => {
+                if (e.target === overlay) {
+                    document.body.removeChild(overlay);
+                }
+            };
+
+            overlay.appendChild(img);
+            overlay.appendChild(closeBtn);
+            document.body.appendChild(overlay);
+
+        }
+
+
+        document.getElementById('download-btn').addEventListener('click', function (e) {
+            e.preventDefault();
+            fetch('https://github.com/gwjq62862/my-cv-form/raw/85d3d12836751853b9a1c5af488a7a3e125c968f/IMG_20250521_125852_920.jpg')
+                .then(resp => resp.blob())
+                .then(blob => {
+                    const url = window.URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.style.display = 'none';
+                    a.href = url;
+                    a.download = 'IMG_20250521_125852_920.jpg';
+                    document.body.appendChild(a);
+                    a.click();
+                    window.URL.revokeObjectURL(url);
+                });
+        });
+    </script>
+
+    <script>
+        const fullText = `An experienced Graphic Designer with a strong focus on Print Design and Social Media Design, bringing 2 years of proven success in creating impactful and goal-oriented designs. During tenure as a Digital Designer at a well-known Solar Company, spearheaded digital marketing campaigns for products including Solar Battery Inverters, Electronic Home Appliances, and Phones, developing effective visual content. Additionally, holds foundational experience in Video Editing and Videography, contributing to a versatile skill set in multi-media content creation.`;
+
+        const shortText = `An experienced Graphic Designer with a strong focus on Print Design and Social Media Design.`;
+
+        const textElement = document.getElementById("mainText");
+        const toggleBtn = document.getElementById("toggleBtn");
+
+        let expanded = false;
+
+        toggleBtn.addEventListener("click", () => {
+            expanded = !expanded;
+            textElement.textContent = expanded ? fullText : shortText;
+            toggleBtn.textContent = expanded ? "See Less" : "See More";
+        });
+    </script>
+
+</body>
+
+</html>

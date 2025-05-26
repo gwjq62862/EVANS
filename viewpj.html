@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>view project</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0f172a;
+            color: #e2e8f0;
+            scroll-behavior: smooth;
+        }
+
+        .gradient-text {
+            background: linear-gradient(90deg, #6366f1, #8b5cf6, #ec4899);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .nav-link {
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background: linear-gradient(90deg, #6366f1, #8b5cf6);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .project-card {
+            transition: all 0.3s ease;
+            transform: translateY(0);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        .skill-bar {
+            height: 6px;
+            background: #1e293b;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(90deg, #6366f1, #8b5cf6);
+            transition: width 1s ease-in-out;
+        }
+
+        .floating {
+            animation: floating 6s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 1s ease-in forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        .delay-1 {
+            animation-delay: 0.2s;
+        }
+
+        .delay-2 {
+            animation-delay: 0.4s;
+        }
+
+        .delay-3 {
+            animation-delay: 0.6s;
+        }
+
+        .delay-4 {
+            animation-delay: 0.8s;
+        }
+
+        .delay-5 {
+            animation-delay: 1s;
+        }
+
+        .bg-glass {
+            background: rgba(15, 23, 42, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .cv-button {
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            transition: all 0.4s ease;
+        }
+
+        .fas {
+            margin-right: 10px;
+        }
+
+        .cv-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: all 0.6s ease;
+            z-index: -1;
+        }
+
+        .cv-button:hover::before {
+            left: 100%;
+        }
+
+        .cv-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(99, 102, 241, 0.3);
+        }
+    </style>
+</head>
+
+<body>
+    <section id="portfolio" class="py-20 px-6 md:px-12 lg:px-24">
+        <div class="container mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4 text-center fade-in">
+                All My <span class="gradient-text">Project</span>
+            </h2>
+            <p class="text-slate-400 text-center max-w-2xl mx-auto mb-12 fade-in delay-1">
+                Here's a selection of my recent work. Each project represents a unique challenge and creative solution.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="project-card bg-slate-800 rounded-xl overflow-hidden fade-in delay-2">
+                    <div class="relative overflow-hidden group">
+                        <img src="image\photo_1_2025-05-21_19-56-31.jpg" alt="Brand Identity Project"
+                            class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div>
+                                <h3 class="text-xl font-bold text-white mb-2">Nova Brand Identity</h3>
+                                <p class="text-slate-300 mb-4">Complete brand identity design for a tech startup</p>
+                                <a href="image\photo_1_2025-05-21_19-56-31.jpg" target="_blank"
+                                    class="text-indigo-400 hover:text-indigo-300 flex items-center"
+                                    onclick="openImageInFullscreen(event, this)">
+                                    View Project <i class="fas fa-arrow-right ml-2"></i>
+                                </a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card bg-slate-800 rounded-xl overflow-hidden fade-in delay-3">
+                    <div class="relative overflow-hidden group">
+                        <img src="image/photo_2_2025-05-21_19-56-31.jpg" alt="Mobile App Design"
+                            class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div>
+                                <h3 class="text-xl font-bold text-white mb-2">Fitness App UI/UX</h3>
+                                <p class="text-slate-300 mb-4">Mobile application design for fitness tracking</p>
+                                <a href="image/photo_2_2025-05-21_19-56-31.jpg" target="_blank"
+                                    class="text-indigo-400 hover:text-indigo-300 flex items-center"
+                                    onclick="openImageInFullscreen(event, this)">
+                                    View Project <i class="fas fa-arrow-right ml-2"></i>
+                                </a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card bg-slate-800 rounded-xl overflow-hidden fade-in delay-4">
+                    <div class="relative overflow-hidden group">
+                        <img src="image/photo_3_2025-05-21_19-56-31.jpg" alt="Packaging Design"
+                            class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div>
+                                <h3 class="text-xl font-bold text-white mb-2">Organic Product Packaging</h3>
+                                <p class="text-slate-300 mb-4">Sustainable packaging design for organic skincare line
+                                </p>
+                                <a href="image/photo_3_2025-05-21_19-56-31.jpg" target="_blank"
+                                    class="text-indigo-400 hover:text-indigo-300 flex items-center"
+                                    onclick="openImageInFullscreen(event, this)">
+                                    View Project <i class="fas fa-arrow-right ml-2"></i>
+                                </a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="project-card bg-slate-800 rounded-xl overflow-hidden fade-in delay-3">
+                    <div class="relative overflow-hidden group">
+                        <img src="image/photo_4_2025-05-21_19-56-31.jpg" alt="Website Design"
+                            class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div>
+                                <h3 class="text-xl font-bold text-white mb-2">E-commerce Website</h3>
+                                <p class="text-slate-300 mb-4">Complete website design for fashion retailer</p>
+                                <a href="image/photo_4_2025-05-21_19-56-31.jpg" target="_blank"
+                                    class="text-indigo-400 hover:text-indigo-300 flex items-center"
+                                    onclick="openImageInFullscreen(event, this)">
+                                    View Project <i class="fas fa-arrow-right ml-2"></i>
+                                </a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 5 -->
+                <div class="project-card bg-slate-800 rounded-xl overflow-hidden fade-in delay-4">
+                    <div class="relative overflow-hidden group">
+                        <img src="image/photo_5_2025-05-21_19-56-31.jpg" alt="Corporate Branding"
+                            class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div>
+                                <h3 class="text-xl font-bold text-white mb-2">Corporate Branding</h3>
+                                <p class="text-slate-300 mb-4">Brand identity for financial consulting firm</p>
+                                <a href="image/photo_5_2025-05-21_19-56-31.jpg" target="_blank"
+                                    class="text-indigo-400 hover:text-indigo-300 flex items-center"
+                                    onclick="openImageInFullscreen(event, this)">
+                                    View Project <i class="fas fa-arrow-right ml-2"></i>
+                                </a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 6 -->
+                <div class="project-card bg-slate-800 rounded-xl overflow-hidden fade-in delay-5">
+                    <div class="relative overflow-hidden group">
+                        <img src="image/photo_6_2025-05-21_19-56-31.jpg" alt="Illustration Series"
+                            class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div>
+                                <h3 class="text-xl font-bold text-white mb-2">Digital Illustration Series</h3>
+                                <p class="text-slate-300 mb-4">Concept art for fantasy book series</p>
+                                <a href="image/photo_6_2025-05-21_19-56-31.jpg" target="_blank"
+                                    class="text-indigo-400 hover:text-indigo-300 flex items-center"
+                                    onclick="openImageInFullscreen(event, this)">
+                                    View Project <i class="fas fa-arrow-right ml-2"></i>
+                                </a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card bg-slate-800 rounded-xl overflow-hidden fade-in delay-2">
+                    <div class="relative overflow-hidden group">
+                        <img src="image\photo_7_2025-05-21_19-56-31.jpg" alt="Brand Identity Project"
+                            class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div>
+                                <h3 class="text-xl font-bold text-white mb-2">Nova Brand Identity</h3>
+                                <p class="text-slate-300 mb-4">Complete brand identity design for a tech startup</p>
+                                <a href="image\photo_7_2025-05-21_19-56-31.jpg" target="_blank"
+                                    class="text-indigo-400 hover:text-indigo-300 flex items-center"
+                                    onclick="openImageInFullscreen(event, this)">
+                                    View Project <i class="fas fa-arrow-right ml-2"></i>
+                                </a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="project-card bg-slate-800 rounded-xl overflow-hidden fade-in delay-2">
+                    <div class="relative overflow-hidden group">
+                        <img src="image\photo_8_2025-05-21_19-56-31.jpg" alt="Brand Identity Project"
+                            class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div>
+                                <h3 class="text-xl font-bold text-white mb-2">Nova Brand Identity</h3>
+                                <p class="text-slate-300 mb-4">Complete brand identity design for a tech startup</p>
+                                <a href="image\photo_8_2025-05-21_19-56-31.jpg" target="_blank"
+                                    class="text-indigo-400 hover:text-indigo-300 flex items-center"
+                                    onclick="openImageInFullscreen(event, this)">
+                                    View Project <i class="fas fa-arrow-right ml-2"></i>
+                                </a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="project-card bg-slate-800 rounded-xl overflow-hidden fade-in delay-2">
+                    <div class="relative overflow-hidden group">
+                        <img src="image\photo_9_2025-05-21_19-56-31.jpg" alt="Brand Identity Project"
+                            class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div>
+                                <h3 class="text-xl font-bold text-white mb-2">Nova Brand Identity</h3>
+                                <p class="text-slate-300 mb-4">Complete brand identity design for a tech startup</p>
+                                <a href="image\photo_9_2025-05-21_19-56-31.jpg" target="_blank"
+                                    class="text-indigo-400 hover:text-indigo-300 flex items-center"
+                                    onclick="openImageInFullscreen(event, this)">
+                                    View Project <i class="fas fa-arrow-right ml-2"></i>
+                                </a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="project-card bg-slate-800 rounded-xl overflow-hidden fade-in delay-2">
+                    <div class="relative overflow-hidden group">
+                        <img src="image\photo_10_2025-05-21_19-56-31.jpg" alt="Brand Identity Project"
+                            class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div>
+                                <h3 class="text-xl font-bold text-white mb-2">Nova Brand Identity</h3>
+                                <p class="text-slate-300 mb-4">Complete brand identity design for a tech startup</p>
+                                <a href="image\photo_10_2025-05-21_19-56-31.jpg" target="_blank"
+                                    class="text-indigo-400 hover:text-indigo-300 flex items-center"
+                                    onclick="openImageInFullscreen(event, this)">
+                                    View Project <i class="fas fa-arrow-right ml-2"></i>
+                                </a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="project-card bg-slate-800 rounded-xl overflow-hidden fade-in delay-2">
+                    <div class="relative overflow-hidden group">
+                        <img src="image\photo_11_2025-05-21_19-56-31.jpg" alt="Brand Identity Project"
+                            class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div>
+                                <h3 class="text-xl font-bold text-white mb-2">Nova Brand Identity</h3>
+                                <p class="text-slate-300 mb-4">Complete brand identity design for a tech startup</p>
+                                <a href="image\photo_11_2025-05-21_19-56-31.jpg" target="_blank"
+                                    class="text-indigo-400 hover:text-indigo-300 flex items-center"
+                                    onclick="openImageInFullscreen(event, this)">
+                                    View Project <i class="fas fa-arrow-right ml-2"></i>
+                                </a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="project-card bg-slate-800 rounded-xl overflow-hidden fade-in delay-2">
+                    <div class="relative overflow-hidden group">
+                        <img src="image\photo_12_2025-05-21_19-56-31.jpg" alt="Brand Identity Project"
+                            class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div>
+                                <h3 class="text-xl font-bold text-white mb-2">Nova Brand Identity</h3>
+                                <p class="text-slate-300 mb-4">Complete brand identity design for a tech startup</p>
+                                <a href="image\photo_12_2025-05-21_19-56-31.jpg" target="_blank"
+                                    class="text-indigo-400 hover:text-indigo-300 flex items-center"
+                                    onclick="openImageInFullscreen(event, this)">
+                                    View Project <i class="fas fa-arrow-right ml-2"></i>
+                                </a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="project-card bg-slate-800 rounded-xl overflow-hidden fade-in delay-2">
+                    <div class="relative overflow-hidden group">
+                        <img src="image\photo_13_2025-05-21_19-56-31.jpg" alt="Brand Identity Project"
+                            class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div>
+                                <h3 class="text-xl font-bold text-white mb-2">Nova Brand Identity</h3>
+                                <p class="text-slate-300 mb-4">Complete brand identity design for a tech startup</p>
+                                <a href="image\photo_13_2025-05-21_19-56-31.jpg" target="_blank"
+                                    class="text-indigo-400 hover:text-indigo-300 flex items-center"
+                                    onclick="openImageInFullscreen(event, this)">
+                                    View Project <i class="fas fa-arrow-right ml-2"></i>
+                                </a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="project-card bg-slate-800 rounded-xl overflow-hidden fade-in delay-2">
+                    <div class="relative overflow-hidden group">
+                        <img src="image\photo_14_2025-05-21_19-56-31.jpg" alt="Brand Identity Project"
+                            class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div>
+                                <h3 class="text-xl font-bold text-white mb-2">Nova Brand Identity</h3>
+                                <p class="text-slate-300 mb-4">Complete brand identity design for a tech startup</p>
+                                <a href="image\photo_14_2025-05-21_19-56-31.jpg" target="_blank"
+                                    class="text-indigo-400 hover:text-indigo-300 flex items-center"
+                                    onclick="openImageInFullscreen(event, this)">
+                                    View Project <i class="fas fa-arrow-right ml-2"></i>
+                                </a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="text-center mt-12 fade-in delay-5">
+                <a href="pofolio_responsive_main.html"
+                    class="px-8 py-3 border border-indigo-500 rounded-full text-white font-medium hover:bg-indigo-500/10 transition-all duration-300 inline-flex items-center">
+                    <i class="fas fa-arrow-left ml-2"></i>
+                    Go Back
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function openImageInFullscreen(event, link) {
+            event.preventDefault();
+            const imageUrl = link.getAttribute("href");
+
+            // Create overlay
+            const overlay = document.createElement("div");
+            overlay.style.cssText = `
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.95);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    `;
+
+            // Create image
+            const img = document.createElement("img");
+            img.src = imageUrl;
+            img.style.cssText = `
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.6);
+    `;
+
+            // Create close button
+            const closeBtn = document.createElement("button");
+            closeBtn.innerText = "✕";
+            closeBtn.style.cssText = `
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 24px;
+      color: white;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      z-index: 10000;
+    `;
+
+            closeBtn.onclick = () => document.body.removeChild(overlay);
+            overlay.onclick = (e) => {
+                if (e.target === overlay) {
+                    document.body.removeChild(overlay);
+                }
+            };
+
+            overlay.appendChild(img);
+            overlay.appendChild(closeBtn);
+            document.body.appendChild(overlay);
+        }
+    </script>
+</body>
+
+</html>
